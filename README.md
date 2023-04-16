@@ -8,9 +8,9 @@ Status bar built for my build of [DWM](/swindlesmccoop/dwm). Compatible with Lin
 Replace doas with sudo as necessary.
 
 ## Software Made to Work With This
-- [DWM](/swindlesmccoop/dwm)
-- [DMenu](/swindlesmccoop/dmenu)
-- [ST](/swindlesmccoop/st)
+- [DWM](https://github.com/swindlesmccoop/dwm)
+- [DMenu](https://github.com/swindlesmccoop/dmenu)
+- [ST](https://github.com/swindlesmccoop/st)
 
 # Dependencies
 Each module depends on a script of mine, specifically the following:
