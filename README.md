@@ -20,4 +20,4 @@ Each module depends on a script of mine, specifically the following:
 - `sb-cputemp`
 - `sb-network`
 - `sb-battery`\
-All of these scripts can be found in my [dotfiles repo](/swindlesmccoop/not-just-dotfiles). Simply download each script, make them each executable, and place them somewhere in your $PATH.
+All of these scripts can be found in my [dotfiles repo](https://github.com/swindlesmccoop/not-just-dotfiles) at [`.local/bin/`](https://github.com/swindlesmccoop/not-just-dotfiles/tree/master/.local/bin). Simply download each script, make them each executable, and place them somewhere in your $PATH.
