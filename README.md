@@ -1,3 +1,7 @@
+#### Tweak by stpettersens
+Just display the date and time.
+This fork of swindlemccoop's dwmblocks goes with my fork of his [dwm build](https://github.com/stpettersens/dwm).
+
 # DWMBlocks
 Status bar built for my build of [DWM](/swindlesmccoop/dwm). Compatible with Linux, OpenBSD, and FreeBSD, however I have not yet written the actual functionality for FreeBSD in the scripts yet.
 
