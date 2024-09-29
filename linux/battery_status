@@ -1,0 +1,10 @@
+#!/bin/sh
+status=$(cat /sys/class/power_supply/BAT1/status)
+
+if [ $status == 'Charging' ]; then
+    echo "+"
+elif [ $status == 'Full' ]; then
+    echo '='
+else
+    echo "-"
+fi

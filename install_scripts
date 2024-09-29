@@ -1,0 +1,17 @@
+#!/bin/sh
+OS=$(uname)
+
+if [ $OS == 'FreeBSD' ]; then
+    echo Installing battery scripts for FreeBSD...
+    cp -f freebsd/battery_left /usr/local/bin
+    cp -f freebsd/battery_status /usr/local/bin
+    chmod 755 /usr/local/bin/battery_left
+    chmod 755 /usr/local/bin/battery_status
+
+elif [ $OS == 'Linux' ]; then
+    echo Installing battery scripts for Linux...
+    cp -f linux/battery_left /usr/bin
+    cp -f linux/battery_status /usr/bin
+    chmod 755 /usr/bin/battery_left
+    chmod 755 /usr/bin/battery_status
+fi

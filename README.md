@@ -1,9 +1,10 @@
 #### Tweak by stpettersens
 This fork of swindlemccoop's dwmblocks goes with my fork of his [dwm build](https://github.com/stpettersens/dwm).
 
-Run:
-* > `make isotime && make` to just display the YYY-MM-DD, HH:MM time.
-* > `make battery && make` to display the YYY-MM-DD, HH:MM time and battery left/status.
+Run to configure blocks.h:
+* > `make isotime` to just display the YYY-MM-DD, HH:MM time.
+* > `make battery` to display the YYY-MM-DD, HH:MM time and battery left/status.
+* > `make original` to just display Month Day and time.
 
 # DWMBlocks
 Status bar built for my build of [DWM](/swindlesmccoop/dwm). Compatible with Linux, OpenBSD, and FreeBSD, however I have not yet written the actual functionality for FreeBSD in the scripts yet.

@@ -1,0 +1,10 @@
+#!/bin/sh
+status=$(sysctl hw.acpi.battery | grep hw.acpi.battery.state | awk '{print $2}')
+
+if [ $status == '2' ]; then
+    echo "+"
+elif [ $status == '0' ]; then
+    echo '='
+else
+    echo "-"
+fi

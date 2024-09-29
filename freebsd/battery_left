@@ -1,0 +1,2 @@
+#!/bin/sh
+sysctl hw.acpi.battery | grep hw.acpi.battery.life | awk '{print $2}' | xargs printf "%'d%%"

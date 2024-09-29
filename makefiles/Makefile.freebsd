@@ -7,6 +7,18 @@ LDFLAGS += -L/usr/local/lib -I/usr/local/include
 
 all: options dwmblocks
 
+original:
+	@echo Configuring blocks.h for Month Day and time
+	cp -f blocks_original.h blocks.h
+
+isotime:
+	@echo Configuring blocks.h for isotime
+	cp -f blocks_isotime.h blocks.h
+
+battery:
+	@echo Configuring blocks.h for isotime + battery
+	cp -f blocks_battery.h blocks.h
+
 options:
 	@echo dwmblocks build options:
 	@echo "CFLAGS  = ${CFLAGS}"
@@ -23,6 +35,7 @@ install: dwmblocks
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwmblocks ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwmblocks
+	sh install_scripts
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwmblocks
