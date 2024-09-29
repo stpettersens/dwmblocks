@@ -35,7 +35,10 @@ install: dwmblocks
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwmblocks ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwmblocks
-	sh install_scripts
+	cp -f freebsd/battery_left ${DESTDIR}${PREFIX}/bin
+	cp -f freebsd/battery_status ${DESTDIR}${PREFIX}/bin
+	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
+	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_status
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwmblocks

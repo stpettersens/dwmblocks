@@ -9,9 +9,7 @@
 
 static const Block blocks[] = {
 //	  Label		   Command				Int		SIG
-	{"",            "date '+%Y-%m-%d, %H:%M'", 1,           0},
-	{"Battery: ",    "battery_left", 1,                      0},
-	{"",            "battery_status", 1,                    0},
+	{"",            "date '+%b %d, %H:%M'", 1,           0},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
