@@ -35,8 +35,18 @@ install: dwmblocks
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwmblocks
 	cp -f linux/battery_left ${DESTDIR}${PREFIX}/bin
 	cp -f linux/battery_status ${DESTDIR}${PREFIX}/bin
+	cp -f linux/get_volume ${DESTDIR}${PREFIX}/bin
+	cp -f linux/is_muted ${DESTDIR}${PREFIX}/bin
+	cp -f linux/get_bt_device ${DESTDIR}${PREFIX}/bin
+	cp -f linux/bluetooth_on ${DESTDIR}${PREFIX}/bin
+	cp -f linux/bluetooth_off ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_status
+	chmod 755 ${DESTDIR}${PREFIX}/bin/get_volume
+	chmod 755 ${DESTDIR}${PREFIX}/bin/is_muted
+	chmod 755 ${DESTDIR}${PREFIX}/bin/get_bt_device
+	chmod 755 ${DESTDIR}${PREFIX}/bin/bluetooth_on
+	chmod 755 ${DESTDIR}${PREFIX}/bin/bluetooth_off
 
 
 uninstall:

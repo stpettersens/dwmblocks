@@ -3,8 +3,6 @@ CC      := cc
 CFLAGS  := -pedantic -Wall -Wno-deprecated-declarations -Os
 LDFLAGS := -lX11
 
-LDFLAGS += -L/usr/local/lib -I/usr/local/include
-
 all: options dwmblocks
 
 original:
@@ -13,7 +11,7 @@ original:
 
 isotime:
 	@echo Configuring blocks.h for isotime
-	cp -f blocks_isotime.h blocks.h
+	cp -f  blocks_isotime.h blocks.h
 
 battery:
 	@echo Configuring blocks.h for isotime + battery
@@ -35,10 +33,21 @@ install: dwmblocks
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwmblocks ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwmblocks
-	cp -f freebsd/battery_left ${DESTDIR}${PREFIX}/bin
-	cp -f freebsd/battery_status ${DESTDIR}${PREFIX}/bin
+	cp -f linux/battery_left ${DESTDIR}${PREFIX}/bin
+	cp -f linux/battery_status ${DESTDIR}${PREFIX}/bin
+	cp -f linux/get_volume ${DESTDIR}${PREFIX}/bin
+	cp -f linux/is_muted ${DESTDIR}${PREFIX}/bin
+	cp -f linux/get_bt_device ${DESTDIR}${PREFIX}/bin
+	cp -f linux/bluetooth_on ${DESTDIR}${PREFIX}/bin
+	cp -f linux/bluetooth_off ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_status
+	chmod 755 ${DESTDIR}${PREFIX}/bin/get_volume
+	chmod 755 ${DESTDIR}${PREFIX}/bin/is_muted
+	chmod 755 ${DESTDIR}${PREFIX}/bin/get_bt_device
+	chmod 755 ${DESTDIR}${PREFIX}/bin/bluetooth_on
+	chmod 755 ${DESTDIR}${PREFIX}/bin/bluetooth_off
+
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwmblocks

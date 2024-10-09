@@ -1,0 +1,7 @@
+#!/bin/sh
+onoff=$(amixer get Master | grep 'Front Left: Playback' | awk '{ print $6}')
+if [ $onoff = '[on]' ]; then
+	echo "[AUDIO ON]"
+elif [ $onoff = '[off]' ]; then
+	echo "[AUDIO OFF]"
+fi

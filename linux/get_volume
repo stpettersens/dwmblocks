@@ -1,0 +1,2 @@
+#!/bin/sh
+amixer sget Master | grep 'Front Left: Playback' | awk '{ print $5 }'

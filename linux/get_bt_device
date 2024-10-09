@@ -1,0 +1,21 @@
+#!/bin/env python3
+import os
+import re
+import subprocess
+
+def getBTDevice():
+    returned = subprocess.check_output("echo list | bluetoothctl | grep bluetoothd | awk '{ print $6 $7 }'", shell=True, text=True)
+    info = re.findall('[a-z]+[A-Z]+', returned, re.IGNORECASE)
+    device = info[0][1:]
+    if (device == 'ci' or device == 'ist'):
+        device = '[NONE]'
+    else:
+        device = '[{}]'.format(device)
+
+    if os.path.exists('/ramdisk/bluetooth_off'):
+        device = '[DISABLED]'
+
+    print(device)
+
+if __name__ == "__main__":
+    getBTDevice()
