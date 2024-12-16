@@ -1,0 +1,3 @@
+#!/bin/sh
+picom &
+doas rm -f /ramdisk/picom_off

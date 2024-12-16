@@ -1,5 +1,5 @@
 #!/bin/sh
-status=$(cat /sys/class/power_supply/BAT1/status)
+status=$(cat /sys/class/power_supply/BAT0/status)
 
 if [ $status == 'Charging' ]; then
     echo "+"

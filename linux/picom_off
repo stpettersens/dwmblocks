@@ -1,0 +1,3 @@
+#!/bin/sh
+doas touch /ramdisk/picom_off
+pkill "picom"
