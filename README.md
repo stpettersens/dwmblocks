@@ -19,7 +19,7 @@ Then run `sudo/doas mount -a`.
 
 Requirements:
 * [bash](http://en.wikipedia.org/wiki/Bash_(Unix_shell))
-* [ldc2 (D LLVM compiler)](https://github.com/ldc-developers/ldc#installation)
+* [ldc2 (D LLVM compiler)](https://github.com/ldc-developers/ldc)
 * [upx](https://github.com/upx/upx)
 
 Run to configure blocks.h:
