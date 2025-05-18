@@ -29,14 +29,25 @@ dwmblocks: dwmblocks.c blocks.h
 dprogs:
 	cd linux && ldc2 get_picom_status.d
 	cd linux && ldc2 get_bt_device.d
+	cd linux && ldc2 set_audio_output_device.d
+	cd linux && g++ -std=c++11 get_audio_output_device.cpp -o get_audio_output_device
+	cd linux && ldc2 get_volume_ponymix.d
 	strip linux/get_picom_status
 	strip linux/get_bt_device
+	strip linux/set_audio_output_device
+	strip linux/get_audio_output_device
+	strip linux/get_volume_ponymix
 	upx -9 linux/get_picom_status
 	upx -9 linux/get_bt_device
+	upx -9 linux/set_audio_output_device
+	upx -9 linux/get_audio_output_device
+	upx -9 linux/get_volume_ponymix
 	rm -f linux/*.o
 
 clean:
-	rm -f *.o *.gch dwmblocks get_picom_status get_bt_device
+	rm -f *.o *.gch dwmblocks
+	rm -f linux/get_picom_status linux/get_bt_device linux/set_audio_output_device linux/get_audio_output_device
+	rm -f linux/get_volume_ponymix
 
 install: dwmblocks
 	mkdir -p ${DESTDIR}${PREFIX}/bin
@@ -54,6 +65,9 @@ install: dwmblocks
 	cp -f linux/get_picom_status ${DESTDIR}${PREFIX}/bin
 	cp -f linux/picom_on ${DESTDIR}${PREFIX}/bin
 	cp -f linux/picom_off ${DESTDIR}${PREFIX}/bin
+	cp -f linux/set_audio_output_device ${DESTDIR}${PREFIX}/bin
+	cp -f linux/get_audio_output_device ${DESTDIR}${PREFIX}/bin
+	cp -f linux/get_volume_ponymix ${DESTDIR}${PREFIX}/bin
 	cp -f linux/start-ulauncher ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_status
@@ -67,6 +81,9 @@ install: dwmblocks
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_picom_status
 	chmod 755 ${DESTDIR}${PREFIX}/bin/picom_on
 	chmod 755 ${DESTDIR}${PREFIX}/bin/picom_off
+	chmod 755 ${DESTDIR}${PREFIX}/bin/set_audio_output_device
+	chmod 755 ${DESTDIR}${PREFIX}/bin/get_audio_output_device
+	chmod 755 ${DESTDIR}${PREFIX}/bin/get_volume_ponymix
 	chmod 755 ${DESTDIR}${PREFIX}/bin/start-ulauncher
 
 uninstall:

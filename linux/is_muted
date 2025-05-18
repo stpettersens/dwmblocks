@@ -1,7 +1,4 @@
 #!/bin/sh
-onoff=$(amixer get Master | grep 'Front Left: Playback' | awk '{ print $6}')
-if [ $onoff = '[on]' ]; then
-	echo "[AUDIO ON]"
-elif [ $onoff = '[off]' ]; then
-	echo "[AUDIO OFF]"
-fi
+ponymix is-muted
+ec=$?
+[ $ec -eq 0 ] && echo "[OFF]" || echo "[ON]"
