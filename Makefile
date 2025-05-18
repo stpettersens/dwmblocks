@@ -3,7 +3,7 @@ CC      := cc
 CFLAGS  := -pedantic -Wall -Wno-deprecated-declarations -Os
 LDFLAGS := -lX11
 
-all: options dwmblocks dprogs
+all: options dwmblocks block_programs
 
 original:
 	@echo Configuring blocks.h for Month Day and time
@@ -26,7 +26,7 @@ options:
 dwmblocks: dwmblocks.c blocks.h
 	${CC} -o dwmblocks dwmblocks.c ${CFLAGS} ${LDFLAGS}
 
-dprogs:
+block_programs:
 	cd linux && ldc2 get_picom_status.d
 	cd linux && ldc2 get_bt_device.d
 	cd linux && ldc2 set_audio_output_device.d
@@ -84,6 +84,7 @@ install: dwmblocks
 	chmod 755 ${DESTDIR}${PREFIX}/bin/set_audio_output_device
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_audio_output_device
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_volume_ponymix
+	ln -sf ${DESTDIR}${PREFIX}/bin/get_volume_ponymix ${DESTDIR}${PREFIX}/bin/get_volume
 	chmod 755 ${DESTDIR}${PREFIX}/bin/start-ulauncher
 
 uninstall:
