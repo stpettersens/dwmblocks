@@ -66,7 +66,7 @@ install: dwmblocks
 	cp -f linux/picom_on ${DESTDIR}${PREFIX}/bin
 	cp -f linux/picom_off ${DESTDIR}${PREFIX}/bin
 	cp -f linux/set_audio_output_device ${DESTDIR}${PREFIX}/bin
-	cp -f linux/get_audio_output_device ${DESTDIR}${PREFIX}/bin
+	cp -f linux/get_audio_output_device_hdmi ${DESTDIR}${PREFIX}/bin
 	cp -f linux/get_volume_ponymix ${DESTDIR}${PREFIX}/bin
 	cp -f linux/start-ulauncher ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
@@ -82,7 +82,7 @@ install: dwmblocks
 	chmod 755 ${DESTDIR}${PREFIX}/bin/picom_on
 	chmod 755 ${DESTDIR}${PREFIX}/bin/picom_off
 	chmod 755 ${DESTDIR}${PREFIX}/bin/set_audio_output_device
-	chmod 755 ${DESTDIR}${PREFIX}/bin/get_audio_output_device
+	chmod 755 ${DESTDIR}${PREFIX}/bin/get_audio_output_device_hdmi
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_volume_ponymix
 	ln -sf ${DESTDIR}${PREFIX}/bin/get_volume_ponymix ${DESTDIR}${PREFIX}/bin/get_volume
 	chmod 755 ${DESTDIR}${PREFIX}/bin/start-ulauncher

@@ -1,5 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
 bluetoothctl << EOF
 power on
 EOF
-doas rm -f /ramdisk/bluetooth_off
+if [ -f "/ramdisk/bluetooth_off" ]; then
+    doas rm -f /ramdisk/bluetooth_off
+fi

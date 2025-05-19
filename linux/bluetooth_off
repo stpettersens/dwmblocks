@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 bluetoothctl << EOF
 power off
 EOF
