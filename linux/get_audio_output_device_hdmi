@@ -1,0 +1,2 @@
+#!/bin/sh
+get_audio_output_device --short-hdmi-desc

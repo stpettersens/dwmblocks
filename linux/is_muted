@@ -1,4 +1,4 @@
 #!/bin/sh
 ponymix is-muted
 ec=$?
-[ $ec -eq 0 ] && echo "[OFF]" || echo "[ON]"
+[ $ec -eq 0 ] && echo "[MUTED]" || echo "[ON]"

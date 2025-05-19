@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 status=$(cat /sys/class/power_supply/BAT0/status)
 
 if [ $status == 'Charging' ]; then
