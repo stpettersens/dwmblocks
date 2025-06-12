@@ -55,7 +55,6 @@ install: dwmblocks
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwmblocks
 	cp -f linux/battery_left ${DESTDIR}${PREFIX}/bin
 	cp -f linux/battery_status ${DESTDIR}${PREFIX}/bin
-	cp -f linux/get_volume ${DESTDIR}${PREFIX}/bin
 	cp -f linux/is_muted ${DESTDIR}${PREFIX}/bin
 	cp -f linux/wifi_network ${DESTDIR}${PREFIX}/bin
 	cp -f linux/get_bt_device ${DESTDIR}${PREFIX}/bin

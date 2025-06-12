@@ -11,12 +11,12 @@ static const Block blocks[] = {
 //	  Label		   Command				Int		SIG
 	//{"Battery: ",   "battery_left", 1,                       0},
 	//{"",            "battery_status", 1,                     0},
-    {"",            "get_audio_output_device", 1,            0},
+    {"",            "get_audio_output_device_hdmi", 1,       0},
 	{"Volume: ",    "get_volume_ponymix", 1,                 0},
 	{"",            "is_muted", 1,                           0},
-	{"WiFi: ",      "wifi_network", 1,                       0},
+	//{"WiFi: ",      "wifi_network", 1,                       0},
 	{"Bluetooth: ", "get_bt_device", 1,                      0},
-	//{"",            "get_picom_status", 1,                   0},
+	{"",            "get_picom_status", 1,                   0},
 	{"",            "date '+%Y-%m-%d (%A), %H:%M'", 1,       0}
 };
 
