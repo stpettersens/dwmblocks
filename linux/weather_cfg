@@ -1,0 +1,7 @@
+# Configuration for weather_temp program.
+# Latitude,Longitude
+# Timezone
+# Unit (F = Fahrenheit, C = Celsius, K = Kelvin)
+52.193636,-2.22157500000003
+Europe/London
+C
