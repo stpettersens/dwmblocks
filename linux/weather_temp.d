@@ -51,8 +51,11 @@ int get_weather_temp(weather_opts w) {
 
 weather_opts read_config_file() {
     weather_opts w;
-    string cfg = "weather_cfg";
-    if ("weather_cfg".exists) {
+    string cfg = "/opt/weather_temp/weather.cfg";
+    version(Windows) {
+        cfg = "weather.cfg";
+    }
+    if (cfg.exists) {
         auto f = File(cfg);
         foreach (line; f.byLine()) {
             string l = to!string(line);
