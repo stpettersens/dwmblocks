@@ -2,7 +2,6 @@ import std.file;
 import std.conv;
 import std.stdio;
 import std.string;
-import core.thread;
 import std.process;
 import std.algorithm;
 
@@ -14,23 +13,29 @@ struct weather_opts {
 }
 
 int get_weather_temp(weather_opts w) {
-    string req = format("https://api.open-meteo.com/v1/forecast?latitude=%.2f", w.latitude);
-    req ~= format("&longitude=%.2f&hourly=temperature_2m&current=temperature_2m", w.longitude);
-    req ~= format("&timezone=%s", w.timezone);
+    string endpoint = format("https://api.open-meteo.com/v1/forecast?latitude=%.2f", w.latitude);
+    endpoint ~= format("&longitude=%.2f&hourly=temperature_2m&current=temperature_2m", w.longitude);
+    endpoint ~= format("&timezone=%s", w.timezone);
 
-    string workaround = "";
+    string curl_switch = "";
+    string json = "/opt/weather_temp/weather.json";
+    string get_temp = format("cat %s | jq .temperature_2m", json);
+
     version(Windows) {
-        workaround = " -k ";
+        curl_switch = " -k ";
+        json = "weather.json";
+        get_temp = format("type %s | jq .temperature_2m", json);
     }
 
-    auto api = executeShell
-    (format("curl -s%s \"%s\" | jq .current.temperature_2m", workaround, req));
+    string request = format("curl -s%s \"%s\" | jq .current > %s", curl_switch, endpoint, json);
+    auto api = executeShell(request);
     if (api.status != 0) {
         writeln("Failed to get weather temp.");
         return -1;
     }
 
-    float curr_temp = to!float(strip(api.output));
+    auto temp = executeShell(get_temp);
+    float curr_temp = to!float(strip(temp.output));
 
     if (w.unit == 'F') {
         curr_temp = ((curr_temp * 2) + 30);
@@ -86,14 +91,6 @@ weather_opts read_config_file() {
 }
 
 int main() {
-	int status = 0;
-	while (true) {
-		status = get_weather_temp(read_config_file());
-		if (status == -1)
-			break;
-
-		// Refresh temperature status every hour.
-		Thread.sleep(dur!("seconds")(3600));
-	}
+	int status = get_weather_temp(read_config_file());
     return status;
 }
