@@ -76,7 +76,7 @@ install: dwmblocks
 	cp -f linux/get_volume_ponymix ${DESTDIR}${PREFIX}/bin
 	mkdir -p /opt/weather_temp
 	cp linux/weather.cfg /opt/weather_temp
-	cp -f linux/weather_temp ${DEST}${PREFIX}/bin
+	cp -f linux/weather_temp ${DESTDIR}${PREFIX}/bin
 	cp -f linux/start-ulauncher ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_status
