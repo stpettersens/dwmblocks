@@ -44,7 +44,7 @@ int get_weather_temp(weather_opts w) {
         curr_temp = (curr_temp + 273.15);
     }
 
-    writefln("%.1f %s", curr_temp, w.unit);
+    writefln("%.1f %c", curr_temp, w.unit);
 
     return 0;
 }
