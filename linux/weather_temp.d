@@ -65,17 +65,12 @@ weather_opts read_config_file() {
                 auto ll = l.split(",");
                 w.latitude = to!float(ll[0]);
                 w.longitude = to!float(ll[1]);
-                continue;
             }
-
-            if (l.canFind("/")) {
+            else if (l.canFind("/")) {
                 w.timezone = l;
-                continue;
             }
-
-            if (l.canFind("F") || l.canFind("C") || l.canFind("K")) {
+            else if (l.canFind("F") || l.canFind("C") || l.canFind("K")) {
                 w.unit = to!char(l);
-                continue;
             }
         }
         return w;

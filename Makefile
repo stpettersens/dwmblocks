@@ -26,28 +26,35 @@ options:
 dwmblocks: dwmblocks.c blocks.h
 	${CC} -o dwmblocks dwmblocks.c ${CFLAGS} ${LDFLAGS}
 
+ownweather:
+	chown -R $(USER):$(USER) /opt/weather_temp
+
 block_programs:
 	cd linux && ldc2 get_picom_status.d
 	cd linux && ldc2 get_bt_device.d
 	cd linux && ldc2 set_audio_output_device.d
 	cd linux && g++ -std=c++11 get_audio_output_device.cpp -o get_audio_output_device
 	cd linux && ldc2 get_volume_ponymix.d
+	cd linux && ldc2 weather_temp.d
 	strip linux/get_picom_status
 	strip linux/get_bt_device
 	strip linux/set_audio_output_device
 	strip linux/get_audio_output_device
 	strip linux/get_volume_ponymix
+	strip linux/weather_temp
 	upx -9 linux/get_picom_status
 	upx -9 linux/get_bt_device
 	upx -9 linux/set_audio_output_device
 	upx -9 linux/get_audio_output_device
 	upx -9 linux/get_volume_ponymix
+	upx -9 linux/weather_temp
 	rm -f linux/*.o
 
 clean:
 	rm -f *.o *.gch dwmblocks
 	rm -f linux/get_picom_status linux/get_bt_device linux/set_audio_output_device linux/get_audio_output_device
 	rm -f linux/get_volume_ponymix
+	rm -f linux/weather_temp
 
 install: dwmblocks
 	mkdir -p ${DESTDIR}${PREFIX}/bin
@@ -67,6 +74,8 @@ install: dwmblocks
 	cp -f linux/set_audio_output_device ${DESTDIR}${PREFIX}/bin
 	cp -f linux/get_audio_output_device_hdmi ${DESTDIR}${PREFIX}/bin
 	cp -f linux/get_volume_ponymix ${DESTDIR}${PREFIX}/bin
+	mkdir -p /opt/weather_temp
+	cp -f linux/weather_temp ${DEST}${PREFIX}/bin
 	cp -f linux/start-ulauncher ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_status
@@ -84,6 +93,7 @@ install: dwmblocks
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_audio_output_device_hdmi
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_volume_ponymix
 	ln -sf ${DESTDIR}${PREFIX}/bin/get_volume_ponymix ${DESTDIR}${PREFIX}/bin/get_volume
+	chmod 755 ${DESTDIR}${PREFIX}/bin/weather_temp
 	chmod 755 ${DESTDIR}${PREFIX}/bin/start-ulauncher
 
 uninstall:
