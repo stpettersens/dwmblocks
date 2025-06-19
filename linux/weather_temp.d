@@ -30,7 +30,8 @@ int get_weather_temp(weather_opts w) {
     string request = format("curl -s%s \"%s\" | jq .current > %s", curl_switch, endpoint, json);
     auto api = executeShell(request);
     if (api.status != 0) {
-        writeln("Failed to get weather temp.");
+        writeln("Failed");
+
         return -1;
     }
 
@@ -76,6 +77,7 @@ weather_opts read_config_file() {
                 w.unit = to!char(l);
             }
         }
+
         return w;
     }
 
@@ -89,6 +91,6 @@ weather_opts read_config_file() {
 }
 
 int main() {
-	int status = get_weather_temp(read_config_file());
+    int status = get_weather_temp(read_config_file());
     return status;
 }
