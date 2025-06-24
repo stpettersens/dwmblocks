@@ -39,7 +39,7 @@ int get_weather_temp(weather_opts w) {
     float curr_temp = to!float(strip(temp.output));
 
     if (w.unit == 'F') {
-        curr_temp = ((curr_temp * 2) + 30);
+        curr_temp = ((curr_temp * 1.8) + 32);
     }
     else if (w.unit == 'K') {
         curr_temp = (curr_temp + 273.15);
