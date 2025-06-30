@@ -18,12 +18,12 @@ int get_weather_temp(weather_opts w) {
     endpoint ~= format("&timezone=%s", w.timezone);
 
     string curl_switch = "";
-    string json = "/opt/weather_temp/weather.json";
+    string json = "/tmp/weather_temp.json";
     string get_temp = format("cat %s | jq .temperature_2m", json);
 
     version(Windows) {
         curl_switch = " -k ";
-        json = "weather.json";
+        json = "weather_temp.json";
         get_temp = format("type %s | jq .temperature_2m", json);
     }
 
@@ -52,9 +52,9 @@ int get_weather_temp(weather_opts w) {
 
 weather_opts read_config_file() {
     weather_opts w;
-    string cfg = "/opt/weather_temp/weather.cfg";
+    string cfg = "/etc/weather_temp.cfg";
     version(Windows) {
-        cfg = "weather.cfg";
+        cfg = "weather_temp.cfg";
     }
     if (cfg.exists) {
         auto f = File(cfg);
