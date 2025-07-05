@@ -74,8 +74,7 @@ install: dwmblocks
 	cp -f linux/set_audio_output_device ${DESTDIR}${PREFIX}/bin
 	cp -f linux/get_audio_output_device_hdmi ${DESTDIR}${PREFIX}/bin
 	cp -f linux/get_volume_ponymix ${DESTDIR}${PREFIX}/bin
-	mkdir -p /opt/weather_temp
-	cp linux/weather.cfg /opt/weather_temp
+	cp linux/weather_temp.cfg /etc
 	cp -f linux/weather_temp ${DESTDIR}${PREFIX}/bin
 	cp -f linux/start-ulauncher ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
