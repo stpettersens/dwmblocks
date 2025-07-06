@@ -77,6 +77,7 @@ install: dwmblocks
 	cp linux/weather_temp.cfg /etc
 	cp -f linux/weather_temp ${DESTDIR}${PREFIX}/bin
 	cp -f linux/start-ulauncher ${DESTDIR}${PREFIX}/bin
+	cp -f linux/iss_location ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_status
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_volume
@@ -95,6 +96,7 @@ install: dwmblocks
 	ln -sf ${DESTDIR}${PREFIX}/bin/get_volume_ponymix ${DESTDIR}${PREFIX}/bin/get_volume
 	chmod 755 ${DESTDIR}${PREFIX}/bin/weather_temp
 	chmod 755 ${DESTDIR}${PREFIX}/bin/start-ulauncher
+	chmod 755 ${DESTDIR}${PREFIX}/bin/iss_location
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwmblocks
