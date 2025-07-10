@@ -15,7 +15,10 @@ struct weather_opts {
 int get_weather_temp(weather_opts w) {
     string endpoint = format("https://api.open-meteo.com/v1/forecast?latitude=%.2f", w.latitude);
     endpoint ~= format("&longitude=%.2f&hourly=temperature_2m&current=temperature_2m", w.longitude);
-    endpoint ~= format("&timezone=%s", w.timezone);
+
+    // UTC timezone does not need a parameter to the API.
+    if (w.timezone != "UTC")
+        endpoint ~= format("&timezone=%s", w.timezone);
 
     string curl_switch = "";
     string json = "/tmp/weather_temp.json";
@@ -72,6 +75,9 @@ weather_opts read_config_file() {
             }
             else if (l.canFind("/")) {
                 w.timezone = l;
+            }
+            else if (l.canFind("Z")) {
+                w.timezone = "UTC"; // Zulu time is UTC.
             }
             else if (l.canFind("F") || l.canFind("C") || l.canFind("K")) {
                 w.unit = to!char(l);
