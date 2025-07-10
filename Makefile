@@ -80,7 +80,6 @@ install: dwmblocks
 	cp -f linux/iss_location ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_status
-	chmod 755 ${DESTDIR}${PREFIX}/bin/get_volume
 	chmod 755 ${DESTDIR}${PREFIX}/bin/is_muted
 	chmod 755 ${DESTDIR}${PREFIX}/bin/wifi_network
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_bt_device
