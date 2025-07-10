@@ -93,7 +93,6 @@ install: dwmblocks
 	chmod 755 ${DESTDIR}${PREFIX}/bin/set_audio_output_device
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_audio_output_device_hdmi
 	chmod 755 ${DESTDIR}${PREFIX}/bin/get_volume_ponymix
-	ln -sf ${DESTDIR}${PREFIX}/bin/get_volume_ponymix ${DESTDIR}${PREFIX}/bin/get_volume
 	chmod 755 ${DESTDIR}${PREFIX}/bin/weather_temp
 	chmod 755 ${DESTDIR}${PREFIX}/bin/start-ulauncher
 	chmod 755 ${DESTDIR}${PREFIX}/bin/iss_location

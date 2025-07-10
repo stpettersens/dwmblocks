@@ -16,7 +16,7 @@ static const Block blocks[] = {
 	{"",            "is_muted", 1,                           0},
 	{"WiFi: ",      "wifi_network", 1,                       0},
 	{"Bluetooth: ", "get_bt_device", 1,                      0},
-	//{"",            "get_picom_status", 1,                   0},
+	{"",            "get_picom_status", 1,                   0},
 	{"",            "date '+%Y-%m-%d (%a), %H:%M'", 1,       0},
     {"",            "weather_temp", 3600,                    0},
     {"",            "iss_location", 900,                     0}
