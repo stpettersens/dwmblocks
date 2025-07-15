@@ -78,6 +78,7 @@ install: dwmblocks
 	cp -f linux/weather_temp ${DESTDIR}${PREFIX}/bin
 	cp -f linux/start-ulauncher ${DESTDIR}${PREFIX}/bin
 	cp -f linux/iss_location ${DESTDIR}${PREFIX}/bin
+	cp -f linux/vm_do ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_left
 	chmod 755 ${DESTDIR}${PREFIX}/bin/battery_status
 	chmod 755 ${DESTDIR}${PREFIX}/bin/is_muted
@@ -95,6 +96,7 @@ install: dwmblocks
 	chmod 755 ${DESTDIR}${PREFIX}/bin/weather_temp
 	chmod 755 ${DESTDIR}${PREFIX}/bin/start-ulauncher
 	chmod 755 ${DESTDIR}${PREFIX}/bin/iss_location
+	chmod 755 ${DESTDIR}${PREFIX}/bin/vm_do
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwmblocks
