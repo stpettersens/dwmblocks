@@ -2,6 +2,9 @@
 *.obj
 *.exe
 dwmblocks
+get_audio_output_device
+set_audio_output_device
+get_volume_ponymix
 get_picom_status
 get_bt_device
 weather_temp
