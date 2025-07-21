@@ -6,17 +6,6 @@ This fork of swindlemccoop's dwmblocks goes with my fork of his [dwm build](http
 I have written some of my own bash scripts and D programs to provide
 blocks on dwmblocks.
 
-Create a 1MB ramdisk on /ramdisk on your system for the control files
-(`bluetooth_off` and `picom_off`) for the `get_picom_status` and
-`get_bt_device` programs.
-
-Append to end of `/etc/fstab`:
-```
-tmpfs /ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=1M 0 0
-```
-
-Then run `sudo/doas mount -a`.
-
 Requirements:
 * [bash](http://en.wikipedia.org/wiki/Bash_(Unix_shell))
 * [ldc2 (D LLVM compiler)](https://github.com/ldc-developers/ldc)
