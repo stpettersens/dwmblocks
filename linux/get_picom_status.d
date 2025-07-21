@@ -3,7 +3,7 @@ import std.stdio;
 
 void get_picom_status() {
     string status = "[PICOM]";
-    if ("/ramdisk/picom_off".exists)
+    if ("/tmp/picom_off".exists)
         status = "[NONE]";
 
     writeln(status);

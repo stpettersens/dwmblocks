@@ -2,6 +2,6 @@
 bluetoothctl << EOF
 power on
 EOF
-if [ -f "/ramdisk/bluetooth_off" ]; then
-    doas rm -f /ramdisk/bluetooth_off
+if [ -f "/tmp/bluetooth_off" ]; then
+    doas rm -f /tmp/bluetooth_off
 fi

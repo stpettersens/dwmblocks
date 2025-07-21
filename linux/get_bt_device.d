@@ -5,7 +5,7 @@ import std.string;
 import std.process;
 
 void get_bt_device() {
-    if ("/ramdisk/bluetooth_off".exists) {
+    if ("/tmp/bluetooth_off".exists) {
         writeln("[DISABLED]");
         return;
     }
