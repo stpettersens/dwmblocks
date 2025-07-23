@@ -26,9 +26,6 @@ options:
 dwmblocks: dwmblocks.c blocks.h
 	${CC} -o dwmblocks dwmblocks.c ${CFLAGS} ${LDFLAGS}
 
-ownweather:
-	chown -R $(USER):$(USER) /opt/weather_temp
-
 block_programs:
 	cd linux && ldc2 get_picom_status.d
 	cd linux && ldc2 get_bt_device.d
