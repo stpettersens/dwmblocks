@@ -22,13 +22,11 @@ int get_weather_temp(weather_opts w) {
 
     string curl_switch = "";
     string json = "/tmp/weather_temp.json";
-    string get_temp = format("jq .temperature_2m %s", json);
-
     version(Windows) {
         curl_switch = " -k ";
         json = "weather_temp.json";
     }
-
+    
     string request = format("curl -s%s \"%s\" | jq .current > %s", curl_switch, endpoint, json);
     auto api = executeShell(request);
     if (api.status != 0) {
@@ -37,6 +35,7 @@ int get_weather_temp(weather_opts w) {
         return -1;
     }
 
+    string get_temp = format("jq .temperature_2m %s", json);
     auto temp = executeShell(get_temp);
     float curr_temp = to!float(strip(temp.output));
 
