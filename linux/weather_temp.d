@@ -22,12 +22,11 @@ int get_weather_temp(weather_opts w) {
 
     string curl_switch = "";
     string json = "/tmp/weather_temp.json";
-    string get_temp = format("cat %s | jq .temperature_2m", json);
+    string get_temp = format("jq .temperature_2m %s", json);
 
     version(Windows) {
         curl_switch = " -k ";
         json = "weather_temp.json";
-        get_temp = format("type %s | jq .temperature_2m", json);
     }
 
     string request = format("curl -s%s \"%s\" | jq .current > %s", curl_switch, endpoint, json);
