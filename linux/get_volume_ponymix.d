@@ -2,13 +2,17 @@ import std.stdio;
 import std.string;
 import std.process;
 
-void get_volume_ponymix() {
+int get_volume_ponymix() {
     string get_vol = "ponymix | grep 'Volume' | head -1 | awk '{ print $3 }'";
     auto volume = executeShell(get_vol);
-    writefln("[%s]", strip(volume.output));
+    if (volume.status != 0) {
+        writeln("ERROR");
+        return -1;
+    }
+    writefln("[%s]", strip(volume.output).replace("%", " %"));
+    return 0;
 }
 
 int main() {
-    get_volume_ponymix();
-    return 0;
+    return get_volume_ponymix();
 }
