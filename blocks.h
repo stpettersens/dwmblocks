@@ -17,11 +17,11 @@ static const Block blocks[] = {
 	{"Volume: ",    "get_volume_ponymix", 1,                 0},
 	{"",            "is_muted", 1,                           0},
 	{"WiFi: ",      "wifi_network", 1,                       0},
-	{"Bluetooth: ", "get_bt_device", 1,                      0},
+	//{"Bluetooth: ", "get_bt_device", 1,                      0},
 	{"",            "get_picom_status", 1,                   0},
 	{"",            "date '+%Y-%m-%d (%a), %H:%M'", 1,       0},
-    {"",            "weather_temp", 3600,                    0},
-    {"",            "now_playing", 5,                        0} 
+    {"",            "weather_temp", 2700,                    0},
+    {"",            "now_playing",  5,                       0} 
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
