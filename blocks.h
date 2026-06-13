@@ -7,6 +7,8 @@
 	#define SIG 1
 #endif
 
+/* For now_playing, please build the program provided by:
+https://github.com/stpettersens/now_playing */
 static const Block blocks[] = {
 //	  Label		   Command				Int		SIG
 	//{"Battery: ",   "battery_left", 1,                       0},
@@ -19,7 +21,7 @@ static const Block blocks[] = {
 	{"",            "get_picom_status", 1,                   0},
 	{"",            "date '+%Y-%m-%d (%a), %H:%M'", 1,       0},
     {"",            "weather_temp", 3600,                    0},
-    {"",            "iss_location", 900,                     0}
+    {"",            "now_playing", 5,                        0} 
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
